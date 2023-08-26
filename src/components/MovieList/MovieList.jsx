@@ -29,6 +29,11 @@ function MovieList() {
                 image: movie.poster}
 
         })
+        dispatch({
+            type: "GET_DETAILS",
+            payload: movie.id
+
+        })
         history.push("/movies/:id");
     }
 
