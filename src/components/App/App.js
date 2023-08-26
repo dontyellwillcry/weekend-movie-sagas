@@ -12,9 +12,9 @@ function App() {
           <li>
             <Link to="/">Home</Link>
           </li>
-          <li>
+          {/* <li>
             <Link to="/details">Details</Link>
-          </li>
+          </li> */}
         </ul>
         <Route path="/" exact>
           <MovieList />

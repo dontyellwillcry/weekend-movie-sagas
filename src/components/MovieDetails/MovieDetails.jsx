@@ -18,7 +18,7 @@ function MovieDetails() {
         ))}
         <li>{info.description}</li>
 
-        <img src={info.image} alt={genres.movie} />
+        <img src={info.image} alt="Please see the description" />
       </ul>
     </>
   );
