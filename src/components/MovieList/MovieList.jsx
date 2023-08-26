@@ -21,6 +21,14 @@ function MovieList() {
         //     payload: movie.id
 
         // })
+        dispatch({
+            type: "SET_GENRES",
+            payload: {
+                movie: movie.title, 
+                description: movie.description, 
+                image: movie.poster}
+
+        })
         history.push("/movies/:id");
     }
 

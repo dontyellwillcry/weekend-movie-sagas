@@ -3,14 +3,14 @@ import { useHistory } from "react-router-dom";
 
 
 function MovieDetails() {
-    const movies = useSelector(store => store.movies);
+    const genres = useSelector(store => store.genres);
 
 
     return (<>
     <ul>
-        <li>{movies.description}</li>
-        <li></li>
-        <li></li>
+        <li>{genres.movie}</li>
+        <li>{genres.description}</li>
+        <img src={genres.image} alt={genres.movie}/>
 
     </ul>
     
