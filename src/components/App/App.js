@@ -13,8 +13,8 @@ function App() {
       <h1>The Movies Saga!</h1>
       <Router>
         <ul>
-          <li>
-            <Link to="/">Home</Link>
+          <li style={{ listStyleType: 'none' }}>
+            <Link  to="/">Home</Link>
           </li>
           {/* <li>
             <Link to="/details">Details</Link>
