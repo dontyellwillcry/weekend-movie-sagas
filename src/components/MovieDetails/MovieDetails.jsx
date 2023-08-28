@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
+import { useState } from "react";
 import * as React from "react";
 import { styled } from "@mui/material/styles";
 import Card from "@mui/material/Card";
@@ -20,26 +21,29 @@ import MoreVertIcon from "@mui/icons-material/MoreVert";
 function MovieDetails() {
   const genres = useSelector((store) => store.genres);
   const info = useSelector((store) => store.info);
-  console.log(info);
+  const [expanded, setExpanded] = useState(false); // Add this line
 
+  function handleExpandClick() {
+    setExpanded(!expanded);
+  }
+
+  const CenteredCardContainer = styled("div")({
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    height: "100vh", // Adjust as needed
+  });
+
+  
+
+  
   return (
     <>
-      {/* <ul>
-        {genres.map((movieData) => (
-          <li key={movieData.title}>
-            Movie: {movieData.title}
-            <br />
-            Genre: {movieData.genres.join(", ")}
-          </li>
-        ))}
-        <li>{info.description}</li>
-
-        <img src={info.image} alt="Please see the description" />
-      </ul> */}
+    <CenteredCardContainer>
       <Card sx={{ maxWidth: 345 }}>
         {genres.map((movieData) => (
           <CardHeader
-          key={movieData.title}
+            key={movieData.title}
             avatar={
               <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
                 M
@@ -55,7 +59,23 @@ function MovieDetails() {
           image={info.image}
           alt="Not sure what goes here"
         />
+        <CardActions disableSpacing>
+          <IconButton
+            aria-label="expand description"
+            onClick={handleExpandClick}
+            aria-expanded={expanded}
+          >
+            <ExpandMoreIcon />
+          </IconButton>
+        </CardActions>
+        <Collapse in={expanded} timeout="auto" unmountOnExit>
+          <CardContent>
+            <Typography paragraph>Description:</Typography>
+            <Typography paragraph>{info.description}</Typography>
+          </CardContent>
+        </Collapse>
       </Card>
+      </CenteredCardContainer>
     </>
   );
 }
