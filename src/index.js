@@ -31,6 +31,7 @@ function* fetchAllMovies() {
         
 }
 function* fetchDetails(action) {
+    // get all genres for a given movie id
     console.log("inside of genres GET");
     try {
       const genres = yield axios.get(`/api/genre/${action.payload}`);
@@ -65,6 +66,8 @@ const genres = (state = [], action) => {
     }
 }
 
+// I created this reducer to hold the movie description and poster image
+// for wahtever image is clicked.
 const info = (state = {}, action) => {
     switch (action.type) {
         case 'SET_INFO':

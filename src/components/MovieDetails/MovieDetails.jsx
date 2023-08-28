@@ -13,10 +13,7 @@ import Avatar from "@mui/material/Avatar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import { red } from "@mui/material/colors";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import ShareIcon from "@mui/icons-material/Share";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
 
 function MovieDetails() {
   const genres = useSelector((store) => store.genres);
@@ -36,7 +33,8 @@ function MovieDetails() {
 
   
 
-  
+  // This will show the movie title, and all genres for the image that was clicked.
+  // it will also show the description in a dropdown menu provided by material ui
   return (
     <>
     <CenteredCardContainer>

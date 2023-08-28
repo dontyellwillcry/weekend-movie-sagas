@@ -3,11 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
-import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import Paper from "@mui/material/Paper";
 import { CssBaseline, AppBar, Toolbar } from "@mui/material";
 import MovieIcon from "@mui/icons-material/Movie";
 
@@ -22,6 +19,10 @@ function MovieList() {
     dispatch({ type: "FETCH_MOVIES" });
   }, []);
 
+  // when the showDetails is triggerdSends a payload of 
+  // the description and poster to my set info reducer.
+  // and also the movie ID to the get details saga.
+  // last the user will be sent to the movies:id page.
   function showDetails(movie) {
     dispatch({
       type: "SET_INFO",
@@ -37,7 +38,9 @@ function MovieList() {
     });
     history.push("/movies/:id");
   }
-
+// The return will map through the movies saga and list the images and movie titles
+// I've attached a onClick event to the image so when its clicked it will trigger the above
+// function.
   return (
     <main>
       <CssBaseline>
