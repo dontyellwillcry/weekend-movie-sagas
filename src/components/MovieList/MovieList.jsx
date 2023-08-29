@@ -5,8 +5,15 @@ import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
-import { CssBaseline, AppBar, Toolbar } from "@mui/material";
 import MovieIcon from "@mui/icons-material/Movie";
+import CardMedia from '@mui/material/CardMedia';
+import Grid from '@mui/material/Grid';
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+
+
+
+
 
 import "./MovieList.css";
 
@@ -43,51 +50,43 @@ function MovieList() {
 // function.
   return (
     <main>
-      <CssBaseline>
-        <AppBar position="relative">
-          <Toolbar>
-            <MovieIcon />
-            <Typography
-              variant="h6"
-              color="inherit"
-              noWrap
-              style={{ textAlign: "center", flexGrow: 1 }}
-            >
-              MovieList!!!!
-            </Typography>
-          </Toolbar>
-        </AppBar>
-        {/* <h1>MovieList</h1> */}
-        <section className="movies">
-          {movies.map((movie) => (
-            <Box
-                key={movie.id}
-              sx={{ minWidth: 275, margin: "16px", height: "400px" }}
-            >
-              <Card variant="outlined">
-                <CardContent>
-                  <Typography
-                    sx={{ fontSize: 18 }}
-                    color="text.secondary"
-                    gutterBottom
-                  >
-                    {movie.title}
-                  </Typography>
-
-                  <img
-                    onClick={() => showDetails(movie)}
-                    src={movie.poster}
-                    alt={movie.title}
-                    style={{ maxHeight: "100%", width: "auto" }}
-                  />
-                </CardContent>
+      <AppBar position="relative">
+            <Toolbar>
+              <MovieIcon />
+              <Typography
+                variant="h6"
+                color="inherit"
+                noWrap
+                style={{ textAlign: "center", flexGrow: 1 }}
+              >
+                MovieList!!!!
+              </Typography>
+            </Toolbar>
+          </AppBar>
+      <h1>MovieList</h1>
+      <Grid container spacing={6}>
+        {movies.map((movie) => {
+          return (
+            <Grid item xs={12} sm={6} md={4} key={movie.id}>
+              <Card sx={{ maxWidth: 345 }}>
+                <Typography gutterBottom variant="h5" component="div">
+                  {movie.title}
+                </Typography>
+                <CardMedia
+                  onClick={() => showDetails(movie)}
+                  sx={{ height: 500 }}
+                  image={movie.poster}
+                  title={movie.title}
+                />
               </Card>
-            </Box>
-          ))}
-        </section>
-      </CssBaseline>
+            </Grid>
+          );
+        })}
+      </Grid>
     </main>
   );
 }
 
 export default MovieList;
+
+
