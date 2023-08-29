@@ -31,48 +31,46 @@ function MovieDetails() {
     height: "100vh", // Adjust as needed
   });
 
-  
-
   // This will show the movie title, and all genres for the image that was clicked.
   // it will also show the description in a dropdown menu provided by material ui
   return (
     <>
-    <CenteredCardContainer>
-      <Card sx={{ maxWidth: 345 }}>
-        {genres.map((movieData) => (
-          <CardHeader
-            key={movieData.title}
-            avatar={
-              <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-                M
-              </Avatar>
-            }
-            title={movieData.title}
-            subheader={movieData.genres.join(", ")}
+      <CenteredCardContainer>
+        <Card sx={{ maxWidth: 345 }}>
+          {genres.map((movieData) => (
+            <CardHeader
+              key={movieData.title}
+              avatar={
+                <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
+                  M
+                </Avatar>
+              }
+              title={movieData.title}
+              subheader={movieData.genres.join(", ")}
+            />
+          ))}
+          <CardMedia
+            component="img"
+            height="500"
+            image={info.image}
+            alt="Not sure what goes here"
           />
-        ))}
-        <CardMedia
-          component="img"
-          height="500"
-          image={info.image}
-          alt="Not sure what goes here"
-        />
-        <CardActions disableSpacing>
-          <IconButton
-            aria-label="expand description"
-            onClick={handleExpandClick}
-            aria-expanded={expanded}
-          >
-            <ExpandMoreIcon />
-          </IconButton>
-        </CardActions>
-        <Collapse in={expanded} timeout="auto" unmountOnExit>
-          <CardContent>
-            <Typography paragraph>Description:</Typography>
-            <Typography paragraph>{info.description}</Typography>
-          </CardContent>
-        </Collapse>
-      </Card>
+          <CardActions disableSpacing>
+            <IconButton
+              aria-label="expand description"
+              onClick={handleExpandClick}
+              aria-expanded={expanded}
+            >
+              <ExpandMoreIcon />
+            </IconButton>
+          </CardActions>
+          <Collapse in={expanded} timeout="auto" unmountOnExit>
+            <CardContent>
+              <Typography paragraph>Description:</Typography>
+              <Typography paragraph>{info.description}</Typography>
+            </CardContent>
+          </Collapse>
+        </Card>
       </CenteredCardContainer>
     </>
   );

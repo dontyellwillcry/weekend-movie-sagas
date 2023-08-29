@@ -6,14 +6,10 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import MovieIcon from "@mui/icons-material/Movie";
-import CardMedia from '@mui/material/CardMedia';
-import Grid from '@mui/material/Grid';
-import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-
-
-
-
+import CardMedia from "@mui/material/CardMedia";
+import Grid from "@mui/material/Grid";
+import AppBar from "@mui/material/AppBar";
+import Toolbar from "@mui/material/Toolbar";
 
 import "./MovieList.css";
 
@@ -26,7 +22,7 @@ function MovieList() {
     dispatch({ type: "FETCH_MOVIES" });
   }, []);
 
-  // when the showDetails is triggerdSends a payload of 
+  // when the showDetails is triggerdSends a payload of
   // the description and poster to my set info reducer.
   // and also the movie ID to the get details saga.
   // last the user will be sent to the movies:id page.
@@ -45,24 +41,24 @@ function MovieList() {
     });
     history.push("/movies/:id");
   }
-// The return will map through the movies saga and list the images and movie titles
-// I've attached a onClick event to the image so when its clicked it will trigger the above
-// function.
+  // The return will map through the movies saga and list the images and movie titles
+  // I've attached a onClick event to the image so when its clicked it will trigger the above
+  // function.
   return (
     <main>
       <AppBar position="relative">
-            <Toolbar>
-              <MovieIcon />
-              <Typography
-                variant="h6"
-                color="inherit"
-                noWrap
-                style={{ textAlign: "center", flexGrow: 1 }}
-              >
-                MovieList!!!!
-              </Typography>
-            </Toolbar>
-          </AppBar>
+        <Toolbar>
+          <MovieIcon />
+          <Typography
+            variant="h6"
+            color="inherit"
+            noWrap
+            style={{ textAlign: "center", flexGrow: 1 }}
+          >
+            MovieList!!!!
+          </Typography>
+        </Toolbar>
+      </AppBar>
       <h1>MovieList</h1>
       <Grid container spacing={6}>
         {movies.map((movie) => {
@@ -88,5 +84,3 @@ function MovieList() {
 }
 
 export default MovieList;
-
-
