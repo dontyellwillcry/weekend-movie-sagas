@@ -17,7 +17,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 function MovieDetails() {
   const genres = useSelector((store) => store.genres);
   const info = useSelector((store) => store.info);
-  const [expanded, setExpanded] = useState(false); // Add this line
+  const [expanded, setExpanded] = useState(false); 
 
   function handleExpandClick() {
     setExpanded(!expanded);
@@ -27,7 +27,7 @@ function MovieDetails() {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    height: "100vh", // Adjust as needed
+    height: "100vh", 
   });
 
   // This will show the movie title, and all genres for the image that was clicked.
