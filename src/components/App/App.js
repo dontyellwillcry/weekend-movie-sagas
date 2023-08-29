@@ -20,9 +20,6 @@ function App() {
             <li style={{ listStyleType: "none" }}>
               <Link to="/">Home</Link>
             </li>
-            {/* <li>
-            <Link to="/details">Details</Link>
-          </li> */}
           </ul>
           <Route path="/" exact>
             <MovieList />
@@ -30,8 +27,6 @@ function App() {
           <Route path="/movies/:id">
             <MovieDetails />
           </Route>
-
-          {/* Add Movie page */}
         </Router>
       </Container>
     </div>
